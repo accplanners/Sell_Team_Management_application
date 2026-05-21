@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link,  useNavigate } from "react-router-dom";
 
 import "./layout.css";
 
@@ -28,6 +28,15 @@ function Layout() {
 
   const [showEPins, setShowEPins] = useState(false);
   const [showPersonal, setShowPersonal] = useState(false);
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    // Remove stored login data
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+  
+    // Redirect to login page
+    navigate("/login");
+  };
 
   return (
     <div className="layout">
@@ -102,13 +111,39 @@ function Layout() {
         )}
 
         {/* TRANSACTIONS */}
-        <Link to="/transactions" className="menu-item">
+        {/* <Link to="/transactions" className="menu-item">
           <div className="left">
             <FaMoneyCheckAlt />
 
             {sidebarOpen && <span>My Transactions</span>}
           </div>
-        </Link>
+        </Link> */}
+        <div
+          className="menu-item dropdown"
+          onClick={() => setShowEPins(!showEPins)}
+        >
+          <div className="left">
+            <FaMoneyCheckAlt />
+
+            {sidebarOpen && <span>My Transactions</span>}
+          </div>
+
+          {sidebarOpen && (
+            <div className="arrow">
+              {showEPins ? <FaChevronDown /> : <FaChevronRight />}
+            </div>
+          )}
+        </div>
+
+        {showEPins && sidebarOpen && (
+          <div className="submenu">
+            <Link to="/income">Income Wallet</Link>
+
+            <Link to="/vouchers">Income Voucher</Link>
+
+            <Link to="/agent-direct-purchase">My Purchase</Link>
+          </div>
+        )}
 
         {/* PERSONAL */}
         <div
@@ -156,14 +191,50 @@ function Layout() {
           </div>
         </Link>
 
+        {/* <div
+          className="menu-item dropdown"
+          onClick={() => setShowPersonal(!showPersonal)}
+        >
+          <div className="left">
+            <FaUsers />
+
+            {sidebarOpen && <span>Downline</span>}
+          </div>
+
+          {sidebarOpen && (
+            <div className="arrow">
+              {showPersonal ? <FaChevronDown /> : <FaChevronRight />}
+            </div>
+          )}
+        </div>
+
+        {showPersonal && sidebarOpen && (
+          <div className="submenu">
+            <Link to="/editprofile"> */}
+              {/* <FaIdCard /> */}
+              {/* <span>Edit Profile</span>
+            </Link>
+
+            <Link to="/changepassword">
+              <FaKey />
+              <span>Change Password</span>
+            </Link>
+
+            <Link to="/welcomeletter">
+              <FaFileAlt />
+              <span>Welcome Letter</span>
+            </Link>
+          </div>
+        )} */}
+
         {/* LOGOUT */}
-        <Link to="/logout" className="menu-item">
+        <div className="menu-item" onClick={handleLogout}>
           <div className="left">
             <FaSignOutAlt />
-
             {sidebarOpen && <span>Logout</span>}
           </div>
-        </Link>
+        </div>
+
       </div>
 
       {/* MAIN */}

@@ -51,7 +51,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 
 import Home from "./pages/Home";
-import Purchase from "./pages/Purchase";
+// import Purchase from "./pages/Purchase";
 import Registration from "./pages/Registration";
 import MyPins from "./pages/MyPins";
 import UsedPins from "./pages/UsedPins";
@@ -63,6 +63,10 @@ import Transactions from "./pages/Transactions";
 import Personal from "./pages/Personal";
 import Downline from "./pages/Downline";
 import Logout from "./pages/Logout";
+import IncomeBetweenDates from "./pages/IncomeBetweenDates";
+import VouchersBetweenDates from "./pages/VouchersBetweenDates";
+import AgentDirectPurchase from "./pages/AgentDirectPurchase";
+// import Logout from "./pages/Login";
 
 function App() {
 
@@ -75,7 +79,8 @@ function App() {
 
           <Route index element={<Home />} />
 
-          <Route path="purchase" element={<Purchase />} />
+          {/* <Route path="purchase" element={<Purchase />} /> */}
+          {/* <Route path="/login" element={<Login />} /> */}
 
           <Route path="registration" element={<Registration />} />
 
@@ -98,6 +103,12 @@ function App() {
           <Route path="downline" element={<Downline />} />
 
           <Route path="logout" element={<Logout />} />
+          
+          <Route path="/income" element={<IncomeBetweenDates />} />
+
+          <Route path="/vouchers" element={<VouchersBetweenDates />}/>
+          
+          <Route path="/agent-direct-purchase" element={<AgentDirectPurchase />} />
 
         </Route>
 
