@@ -27,7 +27,9 @@ function Layout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   const [showEPins, setShowEPins] = useState(false);
+  const [showTransactions, setShowTransactions] = useState(false);
   const [showPersonal, setShowPersonal] = useState(false);
+  const [showDownline, setShowDownline] = useState(false);
   const navigate = useNavigate();
   const handleLogout = () => {
     // Remove stored login data
@@ -120,7 +122,7 @@ function Layout() {
         </Link> */}
         <div
           className="menu-item dropdown"
-          onClick={() => setShowEPins(!showEPins)}
+          onClick={() => setShowTransactions(!showTransactions)}
         >
           <div className="left">
             <FaMoneyCheckAlt />
@@ -130,12 +132,12 @@ function Layout() {
 
           {sidebarOpen && (
             <div className="arrow">
-              {showEPins ? <FaChevronDown /> : <FaChevronRight />}
+              {showTransactions ? <FaChevronDown /> : <FaChevronRight />}
             </div>
           )}
         </div>
 
-        {showEPins && sidebarOpen && (
+        {showTransactions && sidebarOpen && (
           <div className="submenu">
             <Link to="/income">Income Wallet</Link>
 
@@ -183,17 +185,9 @@ function Layout() {
         )}
 
         {/* DOWNLINE */}
-        <Link to="/downline" className="menu-item">
-          <div className="left">
-            <FaUsers />
-
-            {sidebarOpen && <span>Downline</span>}
-          </div>
-        </Link>
-
-        {/* <div
+        <div
           className="menu-item dropdown"
-          onClick={() => setShowPersonal(!showPersonal)}
+          onClick={() => setShowDownline(!showDownline)}
         >
           <div className="left">
             <FaUsers />
@@ -203,30 +197,38 @@ function Layout() {
 
           {sidebarOpen && (
             <div className="arrow">
-              {showPersonal ? <FaChevronDown /> : <FaChevronRight />}
+              {showDownline ? <FaChevronDown /> : <FaChevronRight />}
             </div>
           )}
         </div>
 
-        {showPersonal && sidebarOpen && (
+        {showDownline && sidebarOpen && (
           <div className="submenu">
-            <Link to="/editprofile"> */}
-              {/* <FaIdCard /> */}
-              {/* <span>Edit Profile</span>
+            <Link to="/treeview">
+              <FaIdCard />
+              <span>Tree View</span>
             </Link>
 
-            <Link to="/changepassword">
+            <Link to="/mypoints">
               <FaKey />
-              <span>Change Password</span>
+              <span>My Points</span>
             </Link>
 
-            <Link to="/welcomeletter">
+            <Link to="/mydirect">
               <FaFileAlt />
-              <span>Welcome Letter</span>
+              <span>My Direct</span>
             </Link>
-          </div>
-        )} */}
+            <Link to="/mydownline">
+              <FaFileAlt />
+              <span>My Downline</span>
+            </Link>
+            <Link to="/downlinereport">
+              <FaFileAlt />
+              <span>Downline Report</span>
+            </Link>
 
+          </div>
+        )}
         {/* LOGOUT */}
         <div className="menu-item" onClick={handleLogout}>
           <div className="left">

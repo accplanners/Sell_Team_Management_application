@@ -1,0 +1,87 @@
+/* Tree.css */
+
+body {
+    background: #ddd;
+    font-family: Arial, sans-serif;
+  }
+  
+  .tree-container {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+  }
+  
+  /* Node Layout */
+  
+  .node-level {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 50px 0;
+    position: relative;
+  }
+  
+  .root-level {
+    justify-content: center;
+  }
+  
+  .node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  
+  .node img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .circle {
+    width: 60px;
+    height: 60px;
+    border: 3px solid #333;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  .node p {
+    margin-top: 10px;
+    color: #1e73ff;
+    font-weight: bold;
+  }
+  
+  /* Main branch line */
+  
+  .branch-line {
+    width: 70%;
+    height: 3px;
+    background: black;
+    margin: auto;
+    position: relative;
+  }
+  
+  /* Connecting lines */
+  
+  .node::before {
+    content: "";
+    position: absolute;
+    top: -50px;
+    width: 2px;
+    height: 50px;
+    background: black;
+  }
+  
+  /* Responsive */
+  
+  @media (max-width: 768px) {
+    .node-level {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+  
+    .circle {
+      width: 45px;
+      height: 45px;
+    }
+  }
