@@ -1,0 +1,118 @@
+.pins-page {
+  padding: 20px;
+}
+
+/* TOP BAR */
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 30px;
+  border: 1px solid #ddd;
+  margin-bottom: 30px;
+}
+
+.left-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.welcome-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.date-time {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* IMPORT BUTTON */
+
+.import-btn {
+  background: #42a5f5;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.import-btn:hover {
+  background: #1e88e5;
+}
+
+/* TITLE */
+
+.title-section {
+  margin-bottom: 25px;
+}
+
+.title-section h1 {
+  font-size: 55px;
+  font-weight: bold;
+}
+
+/* FORM */
+
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* FILTER ROW */
+
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter-row label {
+  font-size: 20px;
+}
+
+/* INPUT */
+
+.input-box {
+  display: flex;
+  align-items: center;
+  width: 320px;
+  background: white;
+  border: 1px solid #bbb;
+  padding: 10px;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 16px;
+}
+
+.calendar-icon {
+  color: #666;
+  cursor: pointer;
+}
+
+/* SHOW BUTTON */
+
+.show-btn {
+  width: 130px;
+  height: 55px;
+  border: none;
+  border-radius: 30px;
+  background: #3949ab;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.show-btn:hover {
+  background: #283593;
+}
